@@ -1,51 +1,49 @@
-interface Cell {
-  id: ID
-  machNo: Number
-  downtime: Number
-  runtime: Number
-  downpc: Number
-  units: Number
-  avail: Number
-  perf: Number
-  oee: Number
-  monthlyOEE: Number
-  idle: Number
-  unitsmin: Number
-  downnone: Number
+type Cell {
+  _id: ID!
+  machNo: Int
+  downtime: Int
+  runtime: Int
+  downpc: Int
+  units: Int
+  avail: Int
+  perf: Int
+  oee: Int
+  monthlyOEE: Int
+  idle: Int
+  unitsmin: Int
+  downnone: Int
   date: String
 }
 
 input NewCellInput {
-  id: ID
-  machNo: Number
-  downtime: Number
-  runtime: Number
-  downpc: Number
-  units: Number
-  avail: Number
-  perf: Number
-  oee: Number
-  monthlyOEE: Number
-  idle: Number
-  unitsmin: Number
-  downnone: Number
+  machNo: Int
+  downtime: Int
+  runtime: Int
+  downpc: Int
+  units: Int
+  avail: Int
+  perf: Int
+  oee: Int
+  monthlyOEE: Int
+  idle: Int
+  unitsmin: Int
+  downnone: Int
   date: String
 }
 
 input UpdateCellInput {
-  id: ID
-  machNo: Number
-  downtime: Number
-  runtime: Number
-  downpc: Number
-  units: Number
-  avail: Number
-  perf: Number
-  oee: Number
-  monthlyOEE: Number
-  idle: Number
-  unitsmin: Number
-  downnone: Number
+  machNo: Int
+  downtime: Int
+  runtime: Int
+  downpc: Int
+  units: Int
+  avail: Int
+  perf: Int
+  oee: Int
+  monthlyOEE: Int
+  idle: Int
+  unitsmin: Int
+  downnone: Int
   date: String
 }
 

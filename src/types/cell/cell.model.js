@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 
-const CellSchema: Schema = new Schema({
+const CellSchema = new Schema({
   machNo: { type: Number, require: true },
   downtime: { type: Number, require: true },
   runtime: { type: Number, require: true },
@@ -16,4 +16,4 @@ const CellSchema: Schema = new Schema({
   date: { type: String, require: true }
 })
 
-export default mongoose.model('Cell', CellSchema)
+export const Cell = mongoose.model('cell', CellSchema)

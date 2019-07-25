@@ -3,10 +3,9 @@ import cuid from 'cuid'
 import config from './src/config'
 import _ from 'lodash'
 import { User } from './src/types/user/user.model'
-import { Product } from './src/types/product/product.model'
-import { Coupon } from './src/types/coupon/coupon.model'
+import { Cell } from './src/types/cell/cell.model'
 
-const models = { Coupon, Product, User }
+const models = { User, Cell }
 global.newId = () => {
   return mongoose.Types.ObjectId()
 }
@@ -27,13 +26,10 @@ beforeEach(async done => {
 
   if (mongoose.connection.readyState === 0) {
     try {
-      await mongoose.connect(
-        config.dbUrl + db,
-        {
-          useNewUrlParser: true,
-          autoIndex: true
-        }
-      )
+      await mongoose.connect(config.dbUrl + db, {
+        useNewUrlParser: true,
+        autoIndex: true
+      })
       await clearDB()
       await Promise.all(Object.keys(models).map(name => models[name].init()))
     } catch (e) {

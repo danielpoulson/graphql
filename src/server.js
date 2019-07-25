@@ -4,12 +4,10 @@ import { authenticate } from './utils/auth'
 import { merge } from 'lodash'
 import config from './config'
 import { connect } from './db'
-import product from './types/product/product.resolvers'
 import cell from './types/cell/cell.resolvers'
-import coupon from './types/coupon/coupon.resolvers'
 import user from './types/user/user.resolvers'
 
-const types = ['product', 'cell', 'coupon', 'user']
+const types = ['cell', 'user']
 
 export const start = async () => {
   const rootSchema = `
@@ -22,7 +20,7 @@ export const start = async () => {
 
   const server = new ApolloServer({
     typeDefs: [rootSchema, ...schemaTypes],
-    resolvers: merge({}, product, cell, coupon, user),
+    resolvers: merge({}, cell, user),
     async context({ req }) {
       const user = await authenticate(req)
       return { user }

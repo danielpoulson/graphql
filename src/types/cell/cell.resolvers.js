@@ -7,6 +7,7 @@ const cell = (_, args, ctx) => {
 }
 
 const newCell = (_, args, ctx) => {
+  console.log({ ...args.input })
   return Cell.create({ ...args.input })
 }
 
