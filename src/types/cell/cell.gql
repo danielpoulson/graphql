@@ -1,0 +1,61 @@
+interface Cell {
+  id: ID
+  machNo: Number
+  downtime: Number
+  runtime: Number
+  downpc: Number
+  units: Number
+  avail: Number
+  perf: Number
+  oee: Number
+  monthlyOEE: Number
+  idle: Number
+  unitsmin: Number
+  downnone: Number
+  date: String
+}
+
+input NewCellInput {
+  id: ID
+  machNo: Number
+  downtime: Number
+  runtime: Number
+  downpc: Number
+  units: Number
+  avail: Number
+  perf: Number
+  oee: Number
+  monthlyOEE: Number
+  idle: Number
+  unitsmin: Number
+  downnone: Number
+  date: String
+}
+
+input UpdateCellInput {
+  id: ID
+  machNo: Number
+  downtime: Number
+  runtime: Number
+  downpc: Number
+  units: Number
+  avail: Number
+  perf: Number
+  oee: Number
+  monthlyOEE: Number
+  idle: Number
+  unitsmin: Number
+  downnone: Number
+  date: String
+}
+
+extend type Query {
+  cell: Cell
+  cells: [Cell]!
+}
+
+extend type Mutation {
+  newCell(input: NewCellInput!): Cell!
+  updateCell(id: ID!, input: UpdateCellInput!): Cell!
+  removeCell(id: ID!): Cell!
+}
