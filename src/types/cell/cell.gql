@@ -47,12 +47,12 @@ input UpdateCellInput {
   date: String
 }
 
-extend type Query {
-  cell: Cell
-  cells: [Cell]!
+type Query {
+  getCell: Cell
+  getCells: [Cell]!
 }
 
-extend type Mutation {
+type Mutation {
   newCell(input: NewCellInput!): Cell!
   updateCell(id: ID!, input: UpdateCellInput!): Cell!
   removeCell(id: ID!): Cell!

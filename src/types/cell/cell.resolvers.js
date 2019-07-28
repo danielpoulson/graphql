@@ -1,6 +1,6 @@
 import { Cell } from './cell.model'
 
-const cell = (_, args, ctx) => {
+const getCell = (_, args, ctx) => {
   return Cell.findById(args.id)
     .lean()
     .exec()
@@ -11,7 +11,7 @@ const newCell = (_, args, ctx) => {
   return Cell.create({ ...args.input })
 }
 
-const cells = (_, args, ctx) => {
+const getCells = (_, args, ctx) => {
   return Cell.find({})
     .lean()
     .exec()
@@ -32,8 +32,8 @@ const removeCell = (_, args, ctx) => {
 
 export default {
   Query: {
-    cells,
-    cell
+    getCells,
+    getCell
   },
   Mutation: {
     newCell,
