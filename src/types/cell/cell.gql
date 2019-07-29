@@ -1,8 +1,7 @@
 type Cell {
-  _id: ID!
-  machNo: Int
-  downtime: Int
-  runtime: Int
+  machno: Int
+  downtime: String
+  runtime: String
   downpc: Int
   units: Int
   avail: Int
@@ -13,12 +12,13 @@ type Cell {
   unitsmin: Int
   downnone: Int
   date: String
+  shiftseq: String
 }
 
 input NewCellInput {
-  machNo: Int
-  downtime: Int
-  runtime: Int
+  machno: Int
+  downtime: String
+  runtime: String
   downpc: Int
   units: Int
   avail: Int
@@ -32,9 +32,9 @@ input NewCellInput {
 }
 
 input UpdateCellInput {
-  machNo: Int
-  downtime: Int
-  runtime: Int
+  machno: Int
+  downtime: String
+  runtime: String
   downpc: Int
   units: Int
   avail: Int
@@ -49,7 +49,7 @@ input UpdateCellInput {
 
 type Query {
   getCell: Cell
-  getCells: [Cell]!
+  getCells: [Cell]
 }
 
 type Mutation {

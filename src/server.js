@@ -1,8 +1,9 @@
 import express from 'express'
+const cors = require('cors')
 import graphqlHTTP from 'express-graphql'
 import { makeExecutableSchema } from 'graphql-tools'
 import { merge } from 'lodash'
-import { connect } from './db'
+import { connect } from './db/db'
 import { loadTypeSchema } from './utils/schema'
 import cell from './types/cell/cell.resolvers'
 import config from './config'
@@ -12,6 +13,7 @@ const types = ['cell']
 export const start = async () => {
   try {
     const app = express()
+    app.use(cors())
 
     app.get('/', (req, res) => {
       res.send('This is a GraphQL server')

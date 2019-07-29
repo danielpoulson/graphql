@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 
 const CellSchema = new Schema({
-  machNo: { type: Number, require: true },
+  machno: { type: Number, require: true },
   downtime: { type: Number, require: true },
   runtime: { type: Number, require: true },
   downpc: { type: Number, require: true },

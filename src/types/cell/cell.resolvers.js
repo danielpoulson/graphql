@@ -1,4 +1,6 @@
 import { Cell } from './cell.model'
+import { getShiftSeq } from '../../utils/helpers'
+import { loadMain } from '../../db/sql_data'
 
 const getCell = (_, args, ctx) => {
   return Cell.findById(args.id)
@@ -12,9 +14,10 @@ const newCell = (_, args, ctx) => {
 }
 
 const getCells = (_, args, ctx) => {
-  return Cell.find({})
-    .lean()
-    .exec()
+  const shiftseq = getShiftSeq()
+
+  return loadMain(shiftseq)
+  // return data
 }
 
 const updateCell = (_, args, ctx) => {
