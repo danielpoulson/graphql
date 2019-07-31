@@ -25,6 +25,7 @@ const createDayData = (r, down, shiftseq) => {
     shiftseq: '',
     downnone: 0
   }
+
   const dnTotal = down.Total / 60
   const runtime = r.RunTime
   const downtime = r.DownTime
@@ -57,7 +58,7 @@ export const loadMain = async shiftseq => {
      , SUM([DownTime] / 60) As DownTime
      , SUM([NumDownTm]) AS DownFreq
      FROM [MATTEC_PROHELP].[dbo].[vReportShift]
-     WHERE ShiftSeq like '${shiftseq}%' AND JobSeq is not NULL
+     WHERE ShiftSeq like '${shiftseq}%' AND JobSeq is not NULL AND CalProdQty > 0
      GROUP By MachNo`
 
   const query2 = `SELECT [MachNo]
@@ -76,7 +77,12 @@ export const loadMain = async shiftseq => {
     const down = await pool.request().query(query2)
 
     const data = results.recordset.map((rs, i) => {
-      return createDayData(rs, down.recordset[i], shiftseq)
+      console.log(rs.Total)
+      if (rs.Total > 0) {
+        return createDayData(rs, down.recordset[i], shiftseq)
+      } else {
+        return null
+      }
     })
 
     pool.close()

@@ -12,6 +12,7 @@ const types = ['cell']
 
 export const start = async () => {
   try {
+    const port = config.port || 6000
     const app = express()
     app.use(cors())
 
@@ -34,8 +35,8 @@ export const start = async () => {
       })
     )
     await connect(config.dbUrl)
-    app.listen(config.port, () => {
-      console.log(`Running server on http://localhost:${config.port}/graphql`)
+    app.listen(port, () => {
+      console.log(`Running server on http://localhost:${port}/graphql`)
     })
   } catch (e) {
     console.error(e)
