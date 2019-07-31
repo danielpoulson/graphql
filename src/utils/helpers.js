@@ -29,3 +29,7 @@ export const timeConvert = n => {
     Math.round(minutes) < 10 ? `0${Math.round(minutes)}` : Math.round(minutes)
   return `${rhours}:${rminutes}`
 }
+
+export function toOnePlace(x) {
+  return Math.floor(x * 10) / 10
+}

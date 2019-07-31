@@ -2,15 +2,15 @@ type Cell {
   machno: Int
   downtime: String
   runtime: String
-  downpc: Int
+  downpc: Float
   units: Int
-  avail: Int
-  perf: Int
-  oee: Int
-  monthlyOEE: Int
+  avail: Float
+  perf: Float
+  oee: Float
+  monthlyOEE: Float
   idle: Int
-  unitsmin: Int
-  downnone: Int
+  unitsmin: Float
+  downnone: Float
   date: String
   shiftseq: String
 }
@@ -19,7 +19,7 @@ input NewCellInput {
   machno: Int
   downtime: String
   runtime: String
-  downpc: Int
+  downpc: Float
   units: Int
   avail: Int
   perf: Int

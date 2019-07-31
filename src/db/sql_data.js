@@ -1,5 +1,5 @@
 import { ConnectionPool } from 'mssql'
-import { timeConvert } from '../utils/helpers'
+import { timeConvert, toOnePlace } from '../utils/helpers'
 
 const config = {
   user: 'deltapp',
@@ -33,18 +33,17 @@ const createDayData = (r, down, shiftseq) => {
   rtd.machno = r.MachNo
   rtd.runtime = timeConvert(runtime)
   rtd.downtime = timeConvert(downtime)
-  rtd.downpc = +((downtime / r.TotalTime) * 100).toFixed(1)
+  rtd.downpc = toOnePlace((downtime / r.TotalTime) * 100)
   rtd.units = r.Total
 
   if (r.Total > 0) {
-    rtd.avail = +((1 - downtime / r.TotalTime) * 100).toFixed(1)
-    // rtd.perf = ((r.Total / (r.TotalTime - r.DownTime) * RunRate) * 100).toFixed(1)
-    rtd.perf = +((r.Total / r.Target) * 100).toFixed(1)
-    rtd.oee = +((rtd.avail * rtd.perf) / 100).toFixed(1)
+    rtd.avail = toOnePlace((1 - downtime / r.TotalTime) * 100)
+    rtd.perf = toOnePlace((r.Total / r.Target) * 100)
+    rtd.oee = ((rtd.avail * rtd.perf) / 100).toFixed(1)
   }
   rtd.idle = 480 - (runtime + downtime)
-  rtd.unitsmin = +(r.Total / (runtime + downtime)).toFixed(1)
-  rtd.downnone = +((dnTotal / downtime) * 100).toFixed(1)
+  rtd.unitsmin = toOnePlace(r.Total / (runtime + downtime))
+  rtd.downnone = toOnePlace((dnTotal / downtime) * 100)
 
   return rtd
 }
