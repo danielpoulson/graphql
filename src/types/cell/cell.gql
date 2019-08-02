@@ -15,6 +15,24 @@ type Cell {
   shiftseq: String
 }
 
+type Pareto {
+  labels: [String]
+  pareto: [String]
+  values: [String]
+}
+
+type Trend {
+  line: String
+  oeedata: [Float]
+}
+
+type LineSummary {
+  day: Cell
+  downPareto: Pareto
+  month: Cell
+  oeeTrend: Trend
+}
+
 input NewCellInput {
   machno: Int
   downtime: String
@@ -48,7 +66,7 @@ input UpdateCellInput {
 }
 
 type Query {
-  getCell: Cell
+  getCell(id: Int): LineSummary
   getCells: [Cell]
 }
 

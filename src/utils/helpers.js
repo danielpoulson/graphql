@@ -31,5 +31,13 @@ export const timeConvert = n => {
 }
 
 export function toOnePlace(x) {
-  return Math.floor(x * 10) / 10
+  let num = 0
+  console.log(x)
+
+  if (x > 0) {
+    num = Math.floor(x * 10) / 10
+  } else {
+    num = 0
+  }
+  return num
 }
