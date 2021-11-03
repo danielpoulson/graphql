@@ -60,6 +60,6 @@
     "moment": "^2.24.0",
     "mongoose": "^5.3.14",
     "mssql": "^5.1.0",
-    "validator": "^10.9.0"
+    "validator": "^13.7.0"
   }
 }
