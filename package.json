@@ -57,7 +57,7 @@
     "graphql-import": "^0.7.1",
     "graphql-tools": "^4.0.3",
     "lodash": "^4.17.11",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mongoose": "^5.3.14",
     "mssql": "^5.1.0",
     "validator": "^10.9.0"
