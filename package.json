@@ -58,7 +58,7 @@
     "graphql-tools": "^4.0.3",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
-    "mongoose": "^5.3.14",
+    "mongoose": "^5.7.5",
     "mssql": "^5.1.0",
     "validator": "^10.9.0"
   }
