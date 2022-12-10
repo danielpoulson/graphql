@@ -51,7 +51,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "cuid": "^2.1.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-graphql": "^0.9.0",
     "graphql": "^14.0.2",
     "graphql-import": "^0.7.1",
